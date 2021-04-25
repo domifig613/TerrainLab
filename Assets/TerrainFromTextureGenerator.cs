@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ResetTerrain : MonoBehaviour
+public class TerrainFromTextureGenerator : MonoBehaviour
 {
     [SerializeField] private Texture2D texture;
     private Terrain _terrain;

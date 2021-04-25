@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 //! Sample terrain animator/generator
-public class RandomTerrain : MonoBehaviour
+public class TerrainAnimation : MonoBehaviour
 {
     private Terrain _terrain;
     private TerrainData _terrainData;
@@ -23,7 +23,7 @@ public class RandomTerrain : MonoBehaviour
         _xRes = _terrainData.heightmapResolution;
         _yRes = _terrainData.heightmapResolution;
 // Set heightmap
-        RandomizeTerrain();
+       //RandomizeTerrain();
     }
     
     void Update()
@@ -100,26 +100,42 @@ public class RandomTerrain : MonoBehaviour
 //
 // Set PART of the terrain (use extraction parameters)
 //
-// END OF STUDENT'S CODE //
+        
         _terrainHeights = _terrainData.GetHeights(147, 168, radiusOfAnimation * 2,
             radiusOfAnimation * 2);
-        
-        Vector2 middle = new Vector2(radiusOfAnimation, radiusOfAnimation);
-        for (int i = 0; i < radiusOfAnimation * 2; i++)
+        Vector2 mid =  new Vector2(147 + radiusOfAnimation, 168 + radiusOfAnimation);
+        float time = Time.time;
+            
+        for (int i = 147; i < 147 + radiusOfAnimation * 2; i++)
         {
-            for (int j = 0; j < radiusOfAnimation * 2; j++)
+            for (int j = 168; j < 168 + radiusOfAnimation * 2; j++)
             {
-                Vector2 point = new Vector2(i, j);
-                double distance = Vector2.Distance(point, middle);
-                double difference = (radiusOfAnimation - distance) /
-                                    radiusOfAnimation;
-                if (difference < 0) difference = 0;
-                _terrainHeights[i, j] = (float) (_originalTerrainSectionHeight[i, j] *
-                                              (Math.Sin(Time.time + distance / 10) / 2f) * difference) +
-                                     _originalTerrainSectionHeight[i, j];
+                _terrainHeights[i - 147, j - 168] = Mathf.Sin(-(float)time*3 + Mathf.Sqrt(Mathf.Pow(i - mid.x, 2) + Mathf.Pow(j - mid.y, 2))/10)/15;
             }
         }
-
+        
         _terrainData.SetHeights(147, 168, _terrainHeights);
+
+// END OF STUDENT'S CODE //
+        // _terrainHeights = _terrainData.GetHeights(147, 168, radiusOfAnimation * 2,
+        //     radiusOfAnimation * 2);
+        //
+        // Vector2 middle = new Vector2(radiusOfAnimation, radiusOfAnimation);
+        // for (int i = 0; i < radiusOfAnimation * 2; i++)
+        // {
+        //     for (int j = 0; j < radiusOfAnimation * 2; j++)
+        //     {
+        //         Vector2 point = new Vector2(i, j);
+        //         double distance = Vector2.Distance(point, middle);
+        //         double difference = (radiusOfAnimation - distance) /
+        //                             radiusOfAnimation;
+        //         if (difference < 0) difference = 0;
+        //         _terrainHeights[i, j] = (float) (_originalTerrainSectionHeight[i, j] *
+        //                                       (Math.Sin(Time.time + distance / 10) / 2f) * difference) +
+        //                              _originalTerrainSectionHeight[i, j];
+        //     }
+        // }
+        //
+        // _terrainData.SetHeights(147, 168, _terrainHeights);
     }
 }
