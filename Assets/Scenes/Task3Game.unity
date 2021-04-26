@@ -429,15 +429,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 68d8f3eae01c5744b996aab3358db0a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.12
+      value: 61.75
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 68d8f3eae01c5744b996aab3358db0a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.04
+      value: 48.4
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 68d8f3eae01c5744b996aab3358db0a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.72
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 68d8f3eae01c5744b996aab3358db0a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -467,6 +467,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 230353849881270545, guid: 68d8f3eae01c5744b996aab3358db0a0,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 230353849881270545, guid: 68d8f3eae01c5744b996aab3358db0a0,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 387938471048320949, guid: 68d8f3eae01c5744b996aab3358db0a0,
         type: 3}
       propertyPath: moveSpeed
@@ -475,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 387938471048320949, guid: 68d8f3eae01c5744b996aab3358db0a0,
         type: 3}
       propertyPath: jumpHeight
-      value: 450
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 387938471048320949, guid: 68d8f3eae01c5744b996aab3358db0a0,
         type: 3}
@@ -489,8 +499,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100719842063185833, guid: 68d8f3eae01c5744b996aab3358db0a0,
         type: 3}
+      propertyPath: m_Size.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100719842063185833, guid: 68d8f3eae01c5744b996aab3358db0a0,
+        type: 3}
       propertyPath: m_Size.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100719842063185833, guid: 68d8f3eae01c5744b996aab3358db0a0,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 24.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d8f3eae01c5744b996aab3358db0a0, type: 3}

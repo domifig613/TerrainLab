@@ -37,7 +37,7 @@ public class TerrainGame : MonoBehaviour
             {
                 _tilesStartPoints[i, j] = new Vector2Int(SizeOfTile * i, SizeOfTile * j);
                 _isTilesGoUp[i, j] = Convert.ToBoolean(UnityEngine.Random.Range(0,2));
-                _tilesSpeeds[i,j] = UnityEngine.Random.Range(1f, 10f) / 5000f;
+                _tilesSpeeds[i,j] = UnityEngine.Random.Range(1f, 5f) / 10000f;
             }
         }
     }
@@ -82,7 +82,7 @@ public class TerrainGame : MonoBehaviour
             
             if (UnityEngine.Random.Range(0, 4) == 1)
             {
-                _tilesSpeeds[index.x,index.y] = UnityEngine.Random.Range(1f, 10f) / 5000f;
+                _tilesSpeeds[index.x,index.y] = UnityEngine.Random.Range(1f, 5f) / 10000f;
             }
         }
 
