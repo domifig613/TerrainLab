@@ -19,6 +19,10 @@ public class ResetOnLava : MonoBehaviour
         {
             ResetGame();
         }
+        else if (other.name == "end")
+        {
+            Application.Quit();
+        }
     }
     
     private void ResetGame()
