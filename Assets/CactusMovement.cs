@@ -10,51 +10,51 @@ public class CactusMovement : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     Vector3 rotationAngle;
-    private Rigidbody rigidBody;
-    private bool isGrounded;
-    private float distanceToGround;
+    private Rigidbody _rigidBody;
+    private bool _isGrounded;
+    private float _distanceToGround;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        _rigidBody = GetComponent<Rigidbody>();
+        _distanceToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.01f))
+        if (Physics.Raycast(transform.position, -Vector3.up, _distanceToGround + 0.01f))
         {
-            isGrounded = true;
+            _isGrounded = true;
         }
         else
         {
-            isGrounded = false;
+            _isGrounded = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-            rigidBody.AddForce(Vector3.up * jumpHeight);
-            isGrounded = false;
+            _rigidBody.AddForce(Vector3.up * jumpHeight);
+            _isGrounded = false;
         }
         if(Input.GetKey(KeyCode.W))
         {
-            rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.deltaTime);
+            _rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rigidBody.MovePosition(transform.position - transform.forward * moveSpeed * Time.deltaTime);
+            _rigidBody.MovePosition(transform.position - transform.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
             Quaternion deltaRotation = Quaternion.Euler(rotationAngle * Time.deltaTime);
-            rigidBody.MoveRotation(rigidBody.rotation * deltaRotation);
+            _rigidBody.MoveRotation(_rigidBody.rotation * deltaRotation);
         }
         if (Input.GetKey(KeyCode.A))
         {
             Quaternion deltaRotation = Quaternion.Euler(-rotationAngle * Time.deltaTime);
-            rigidBody.MoveRotation(rigidBody.rotation * deltaRotation);
+            _rigidBody.MoveRotation(_rigidBody.rotation * deltaRotation);
         }
     }
 }
